@@ -7,7 +7,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float _bulletForce = 10f;
     private Rigidbody2D _rigidbody2D;
     private Transform _firePoint;
-
+    
     private void Awake()
     {
         _firePoint = transform;
