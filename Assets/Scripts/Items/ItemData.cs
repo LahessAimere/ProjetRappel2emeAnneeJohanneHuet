@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "new_ItemData", menuName = "ScriptableObjects/new ItemData")]
 public class ItemData : ScriptableObject
 {
-    [SerializeField] private string _name;
+    [FormerlySerializedAs("_name")] [SerializeField] private string nameOfItem;
 
-    public string Name
+    public string NameOfItem
     {
-        get => _name;
-        set => _name = value;
+        get => nameOfItem;
+        set => nameOfItem = value;
     }
 }

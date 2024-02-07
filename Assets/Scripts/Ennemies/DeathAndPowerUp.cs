@@ -1,17 +1,29 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DeathAndPowerUp : MonoBehaviour
-{
-    private void OnCollisionEnter2D(Collision2D other)
+{    
+    [SerializeField] private GameObject[] _powerUpPrefabs;
+    [SerializeField] private float _spawnProbability = 0.5f;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (Random.value < _spawnProbability && _powerUpPrefabs.Length > 0)
         {
-            Destroy(gameObject);
+            int randomIndex = Random.Range(0, _powerUpPrefabs.Length);
+            Instantiate(_powerUpPrefabs[randomIndex], transform.position, Quaternion.identity);
         }
+            
+        Destroy(gameObject);
     }
-    
+
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Enemy destroy");
     }
 }

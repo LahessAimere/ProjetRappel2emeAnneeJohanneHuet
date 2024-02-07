@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    private Vector2 _movementInput;
 
-    private Vector2 movementInput;
 
     private void Update()
     {
@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 movement = new Vector3(movementInput.x, 0f, 0f) * _speed * Time.deltaTime;
+        Vector3 movement = new Vector3(_movementInput.x, _movementInput.y, 0f) * _speed * Time.deltaTime;
         transform.Translate(movement);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        movementInput = context.ReadValue<Vector2>();
+        _movementInput = context.ReadValue<Vector2>();
     }
 }

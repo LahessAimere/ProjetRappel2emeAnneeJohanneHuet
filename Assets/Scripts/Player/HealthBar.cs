@@ -12,17 +12,8 @@ public class HealthBar : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            _playerHealth.MaxHealth -= 10;
-            UpdateHealthBar();
-        }
-    }
-
-    private void UpdateHealthBar()
-    {
-        float normalizedHealth = (float)_playerHealth.CurrentHealth / _playerHealth.MaxHealth;
-        _healthBarImage.transform.localScale = new Vector3(normalizedHealth, 1f, 1f);
+    { 
+        float ratioHealth = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
+        _healthBarImage.transform.localScale = new Vector3(ratioHealth, 1f, 1f);
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - Shield
+  - Enemy
+  - ItemShield
+  - SpawnerEnemies
   layers:
   - Default
   - TransparentFX
@@ -12,12 +16,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Item
+  - Enemy
+  - BulletPlayer
+  - BulletEnemy
+  - Shield
   - 
   - 
   - 
