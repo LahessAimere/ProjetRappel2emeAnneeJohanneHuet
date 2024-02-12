@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97ce5fcbeb969542a55ac477ee7e243, type: 3}
-  m_Name: Speed_ItemData
+  m_Script: {fileID: 11500000, guid: dea34a2dd1dfbf64dafd421556fe8c32, type: 3}
+  m_Name: ListItemDatas
   m_EditorClassIdentifier: 
-  _name: FastSpeed
+  _listItemDatas:
+  - {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
+  - {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}

@@ -194,4 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 1239339504824448413, guid: 52b5b22b354f878438d87f20a058b71d,
     type: 3}
-  _shootInterval: 0.5
+  _shootInterval: 1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
