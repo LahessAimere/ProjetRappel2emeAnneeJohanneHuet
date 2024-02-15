@@ -6,10 +6,14 @@ public class PlayerInteractPowerUp : MonoBehaviour
     [SerializeField] private ShieldBehavior _shieldPrefab;
 
     [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private Inventory _inventory;
     
     [Header("Scriptable Objects")]
     [SerializeField] private ItemData _itemShield;
     [SerializeField] private ItemData _itemRepair;
+
+    [SerializeField] private GameObject _itemVariantsRepair;
+    [SerializeField] private GameObject _itemVariantsShield;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,11 +25,13 @@ public class PlayerInteractPowerUp : MonoBehaviour
             {
                 ShieldBehavior shield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
                 shield.PlayerTransform = transform;
+                _inventory.AddItem(_itemVariantsShield);
             }
 
             if (_itemRepair == itemBehaviour.ItemData)
             {
                 _playerHealth.CurrentHealth += 10;
+                _inventory.AddItem(_itemVariantsRepair);
             }
         }
 

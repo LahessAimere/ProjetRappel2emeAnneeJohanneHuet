@@ -19,10 +19,12 @@ public class Pause : MonoBehaviour
             if (Time.timeScale == 0f)
             {
                 Resume();
+                _playerInput = GetComponent<PlayerInput>();
             }
             else
             {
                 PauseInGame();
+                _playerInput = GetComponent<PlayerInput>();
             }
         }
     }

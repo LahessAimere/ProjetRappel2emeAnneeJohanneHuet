@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private float _size = 400f;
-    [SerializeField] private int _numPoint = 3;
+    [SerializeField] private int _numPoint;
 
     private ListItemDatasInventory _listItemDatas;
+    [SerializeField] private GameObject[] _inventorySlots;
 
     private InputAction _navigationAction;
     private Vector2 _navigationInput;
-    private int _selectedButtonIndex = 0;
+    private int _selectedButtonIndex;
     
 
     private void OnEnable()
@@ -38,6 +39,47 @@ public class Inventory : MonoBehaviour
         {
             _selectedButtonIndex = (_selectedButtonIndex - 1 + _numPoint) % _numPoint;
         }
+    }
+    
+    private void Start()
+    {
+        _inventorySlots = new GameObject[_numPoint];
+    }
+
+    public void AddItem(GameObject itemPrefab)
+    {
+        _numPoint++;
+        ResizeInventorySlots(_numPoint);
+        
+        for (int i = 0; i < _inventorySlots.Length; i++)
+        {
+            if (_inventorySlots[i] == null)
+            {
+                float tau = 2 * Mathf.PI * i / _numPoint;
+                float x = Mathf.Cos(tau) * _size;
+                float y = Mathf.Sin(tau) * _size;
+
+                Vector3 itemPosition = transform.position + new Vector3(x, y, 0);
+
+                GameObject newItem = Instantiate(itemPrefab, itemPosition, Quaternion.identity, transform);
+
+                newItem.transform.localScale = new Vector3(140f, 140f, 140f);
+
+                _inventorySlots[i] = newItem;
+
+                break;
+            }
+        }
+    }
+
+    private void ResizeInventorySlots(int newSize)
+    {
+        GameObject[] newInventorySlots = new GameObject[newSize];
+        for (int i = 0; i < Mathf.Min(newSize, _inventorySlots.Length); i++)
+        {
+            newInventorySlots[i] = _inventorySlots[i];
+        }
+        _inventorySlots = newInventorySlots;
     }
     
     private void OnDrawGizmos()
