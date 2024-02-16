@@ -689,7 +689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1174963348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _size: 50
-  _numPoint: 0
   _inventorySlots: []
 --- !u!1 &1835758875
 GameObject:
@@ -1017,6 +1016,11 @@ PrefabInstance:
     - target: {fileID: 8710546242208120949, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
       propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 1174963347}
+    - target: {fileID: 8710546242208120949, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
+      propertyPath: _objectsToNotPause
       value: 
       objectReference: {fileID: 1174963347}
     m_RemovedComponents: []

@@ -9,6 +9,12 @@ public class Pause : MonoBehaviour
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
+        StartCoroutine(PauseAfterDelay(0.01f));
+    }
+
+    private System.Collections.IEnumerator PauseAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         Resume();
     }
 
@@ -19,12 +25,12 @@ public class Pause : MonoBehaviour
             if (Time.timeScale == 0f)
             {
                 Resume();
-                _playerInput = GetComponent<PlayerInput>();
+                _playerInput.SwitchCurrentActionMap("Game");
             }
             else
             {
                 PauseInGame();
-                _playerInput = GetComponent<PlayerInput>();
+                _playerInput.SwitchCurrentActionMap("UI");
             }
         }
     }
@@ -33,13 +39,11 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0f;
         _pauseMenu.SetActive(true);
-        _playerInput.SwitchCurrentActionMap("UI");
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
         _pauseMenu.SetActive(false);
-        _playerInput.SwitchCurrentActionMap("Game");
     }
 }
