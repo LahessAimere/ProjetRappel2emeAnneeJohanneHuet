@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     private InputAction _navigationAction;
     private Vector2 _navigationInput;
     private int _selectedButtonIndex;
+    private const float _tau = 2 * Mathf.PI;
     
 
     // private void OnEnable()
@@ -52,12 +53,11 @@ public class Inventory : MonoBehaviour
         _numPoint++;
         ResizeInventorySlots(_numPoint);
 
-        float tauMultiplier = 2 * Mathf.PI / _numPoint;
+        float tauMultiplier = _tau / _numPoint;
         for (int i = 0; i < _numPoint; i++)
-        {
-            float tau = tauMultiplier * i;
-            float x = Mathf.Cos(tau) * _size;
-            float y = Mathf.Sin(tau) * _size;
+        {                               
+            float x = Mathf.Cos(tauMultiplier * i) * _size;
+            float y = Mathf.Sin(tauMultiplier * i) * _size;
 
             Vector3 itemPosition = transform.position + new Vector3(x, y, 0);
             Debug.Log(itemPosition);
@@ -114,13 +114,12 @@ public class Inventory : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        float tauMultiplier = 2 * Mathf.PI / _numPoint;
+        float tauMultiplier = _tau / _numPoint;
     
         for (int i = 0; i < _numPoint; i++)
         {
-            float tau = tauMultiplier * i;
-            float x = Mathf.Cos(tau) * _size;
-            float y = Mathf.Sin(tau) * _size;
+            float x = Mathf.Cos(tauMultiplier * i) * _size;
+            float y = Mathf.Sin(tauMultiplier * i) * _size;
     
             Vector3 currentPoint = transform.position + new Vector3(x, y, 0);
     
@@ -138,8 +137,8 @@ public class Inventory : MonoBehaviour
     
             Handles.DrawSolidDisc(currentPoint, Vector3.forward, buttonRadius);
     
-            float nextX = Mathf.Cos(2 * Mathf.PI * (i + 1) / _numPoint) * _size;
-            float nextY = Mathf.Sin(2 * Mathf.PI * (i + 1) / _numPoint) * _size;
+            float nextX = Mathf.Cos(_tau * (i + 1) / _numPoint) * _size;
+            float nextY = Mathf.Sin(_tau * (i + 1) / _numPoint) * _size;
     
             Vector3 nextPoint = transform.position + new Vector3(nextX, nextY, 0);
     

@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1105809668873036937, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1902855426173437654, guid: c09868f4a6244864fa49256332074e8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,10 +68,20 @@ PrefabInstance:
       propertyPath: _itemData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7511424646099208080, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b,
         type: 3}
       propertyPath: m_Name
       value: ItemShield Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868793708774818783, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3675226316486131803, guid: c09868f4a6244864fa49256332074e8b, type: 3}
