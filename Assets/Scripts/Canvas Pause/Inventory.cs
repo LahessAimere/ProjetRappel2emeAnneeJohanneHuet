@@ -15,19 +15,6 @@ public class Inventory : MonoBehaviour
     private Vector2 _navigationInput;
     private int _selectedButtonIndex;
     private const float _tau = 2 * Mathf.PI;
-    
-
-    // private void OnEnable()
-    // {
-    //     _navigationAction.performed += OnNavigation;
-    //     _navigationAction.Enable();
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     _navigationAction.canceled -= OnNavigation;
-    //     _navigationAction.Disable();
-    // }
 
     public void OnNavigation(InputAction.CallbackContext context)
     {

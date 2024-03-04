@@ -1,17 +1,17 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class DeathAndPowerUp : MonoBehaviour
 {    
-    [SerializeField] private GameObject[] _powerUpPrefabs;
+    [SerializeField] private ItemPrefab _itemPrefab;
+    [SerializeField] private ItemData _itemData;
     [SerializeField] private float _spawnProbability = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Random.value < _spawnProbability && _powerUpPrefabs.Length > 0)
+        if (Random.value < _spawnProbability && _itemData)
         {
-            int randomIndex = Random.Range(0, _powerUpPrefabs.Length);
-            Instantiate(_powerUpPrefabs[randomIndex], transform.position, Quaternion.identity);
+           ItemPrefab itemPrefabInstance = Instantiate(_itemPrefab, transform.position, Quaternion.identity);
+           itemPrefabInstance.Set(_itemData);
         }
             
         Destroy(gameObject);

@@ -163,9 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b36d4b09d3a8914da30d5913aef300e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerUpPrefabs:
-  - {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b, type: 3}
-  - {fileID: 1998874303786914736, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
+  _itemPrefab: {fileID: 6094764108587159550, guid: 709792ae1c79963438e50a3f94283995,
+    type: 3}
+  _itemData: {fileID: 0}
   _spawnProbability: 0.5
 --- !u!114 &4454556164977757959
 MonoBehaviour:

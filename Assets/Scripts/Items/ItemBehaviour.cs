@@ -9,6 +9,7 @@ public class ItemBehaviour : MonoBehaviour
    {
       get => _itemData;
    }
+   
    void Update()
    {
       transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
