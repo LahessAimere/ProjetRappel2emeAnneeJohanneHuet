@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D), typeof(SpriteRenderer))]
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;

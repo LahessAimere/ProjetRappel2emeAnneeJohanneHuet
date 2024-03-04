@@ -1,60 +1,27 @@
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private float _size = 400f;
     [SerializeField] private GameObject[] _inventorySlots;
 
-    private int _numPoint;
-    private ListItemDatasInventory _listItemDatas;
-
-    private InputAction _navigationAction;
-    private Vector2 _navigationInput;
     private int _selectedButtonIndex;
     private const float _tau = 2 * Mathf.PI;
-    
 
-    // private void OnEnable()
-    // {
-    //     _navigationAction.performed += OnNavigation;
-    //     _navigationAction.Enable();
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     _navigationAction.canceled -= OnNavigation;
-    //     _navigationAction.Disable();
-    // }
-
-    public void OnNavigation(InputAction.CallbackContext context)
-    {
-        _navigationInput = context.ReadValue<Vector2>();
-
-        if (_navigationInput.x > 0)
-        {
-            _selectedButtonIndex = (_selectedButtonIndex + 1) % _numPoint;
-        }
-        else if (_navigationInput.x < 0)
-        {
-            _selectedButtonIndex = (_selectedButtonIndex - 1 + _numPoint) % _numPoint;
-        }
-    }
-    
     private void Start()
     {
-        _inventorySlots = new GameObject[_numPoint];
+        int numChildren = transform.childCount;
+        _inventorySlots = new GameObject[numChildren];
     }
 
     public void AddItem(GameObject itemPrefab)
     {
-        _numPoint++;
-        ResizeInventorySlots(_numPoint);
+        int numChildren = transform.childCount;
+        ResizeInventorySlots(numChildren);
 
-        float tauMultiplier = _tau / _numPoint;
-        for (int i = 0; i < _numPoint; i++)
+        float tauMultiplier = _tau / numChildren;
+        for (int i = 0; i < numChildren; i++)
         {                               
             float x = Mathf.Cos(tauMultiplier * i) * _size;
             float y = Mathf.Sin(tauMultiplier * i) * _size;
@@ -93,20 +60,15 @@ public class Inventory : MonoBehaviour
 
     public void UpdateInventorySlots()
     {
-        List<GameObject> children = new List<GameObject>();
-
-        foreach (Transform child in transform)
-        {
-            children.Add(child.gameObject);
-        }
+        int numChildren = transform.childCount;
 
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
             if (_inventorySlots[i] == null)
             {
-                if (i < children.Count)
+                if (i < numChildren)
                 {
-                    _inventorySlots[i] = children[i];
+                    _inventorySlots[i] = transform.GetChild(i).gameObject;
                 }
             }
         }
@@ -114,9 +76,10 @@ public class Inventory : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        float tauMultiplier = _tau / _numPoint;
+        int numChildren = transform.childCount;
+        float tauMultiplier = _tau / numChildren;
     
-        for (int i = 0; i < _numPoint; i++)
+        for (int i = 0; i < numChildren; i++)
         {
             float x = Mathf.Cos(tauMultiplier * i) * _size;
             float y = Mathf.Sin(tauMultiplier * i) * _size;
@@ -137,8 +100,8 @@ public class Inventory : MonoBehaviour
     
             Handles.DrawSolidDisc(currentPoint, Vector3.forward, buttonRadius);
     
-            float nextX = Mathf.Cos(_tau * (i + 1) / _numPoint) * _size;
-            float nextY = Mathf.Sin(_tau * (i + 1) / _numPoint) * _size;
+            float nextX = Mathf.Cos(_tau * (i + 1) / numChildren) * _size;
+            float nextY = Mathf.Sin(_tau * (i + 1) / numChildren) * _size;
     
             Vector3 nextPoint = transform.position + new Vector3(nextX, nextY, 0);
     

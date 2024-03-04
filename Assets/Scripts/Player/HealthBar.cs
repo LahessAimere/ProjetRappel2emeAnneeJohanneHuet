@@ -3,17 +3,23 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private PlayerHealth _playerHealth;
     private Image _healthBarImage;
+    private PlayerHealth _playerHealth;
 
     private void Start()
     {
         _healthBarImage = GetComponent<Image>();
+        _playerHealth.OnHealthChanged += UpdateHealthBar;
     }
 
-    private void Update()
-    { 
-        float ratioHealth = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
+    private void OnDestroy()
+    {
+        _playerHealth.OnHealthChanged -= UpdateHealthBar;
+    }
+
+    private void UpdateHealthBar(float currentHealth, float maxHealth)
+    {
+        float ratioHealth = currentHealth / maxHealth;
         _healthBarImage.transform.localScale = new Vector3(ratioHealth, 1f, 1f);
     }
 }
