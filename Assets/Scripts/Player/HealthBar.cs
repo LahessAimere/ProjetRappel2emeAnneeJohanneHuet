@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private PlayerHealthData _playerHealthData;
     private Image _healthBarImage;
-    private PlayerHealth _playerHealth;
 
-    private void Start()
+    private void Awake()
     {
         _healthBarImage = GetComponent<Image>();
-        _playerHealth.OnHealthChanged += UpdateHealthBar;
+        _playerHealthData.OnHealthChanged += UpdateHealthBar;
     }
 
     private void OnDestroy()
     {
-        _playerHealth.OnHealthChanged -= UpdateHealthBar;
+        _playerHealthData.OnHealthChanged -= UpdateHealthBar;
     }
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)

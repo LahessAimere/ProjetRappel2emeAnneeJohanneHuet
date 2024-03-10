@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4621751159914910818}
   - component: {fileID: 1261040540966003169}
   - component: {fileID: 5806054572192971291}
-  - component: {fileID: 3739340593767406529}
   - component: {fileID: 6769168057526693677}
   m_Layer: 6
   m_Name: Player
@@ -179,19 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 7375651319094318472, guid: c1fd8f9f37a13d24c84c534fea427212,
     type: 3}
---- !u!114 &3739340593767406529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8620109694095673008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eff26ed0e484504d903246b8b752762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!114 &6769168057526693677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +192,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shieldPrefab: {fileID: 7871993345420680294, guid: 94d28b45b40d1934582bd5255ebda4b3,
     type: 3}
-  _playerHealth: {fileID: 3739340593767406529}
+  _playerHealthData: {fileID: 11400000, guid: decffe3c7db7eb347ac5c3424d4de400, type: 2}
   _inventory: {fileID: 0}
   _itemShield: {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}
   _itemRepair: {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
-  _itemVariantsRepair: {fileID: 0}
-  _itemVariantsShield: {fileID: 0}
+  _itemVariantsRepair: {fileID: 6571589167592369154, guid: 900f2752484593748b50c77c4dab5616,
+    type: 3}
+  _itemVariantsShield: {fileID: 6297417504456072810, guid: 6eb3e57d2c1cb344e87cea2f131c744e,
+    type: 3}
