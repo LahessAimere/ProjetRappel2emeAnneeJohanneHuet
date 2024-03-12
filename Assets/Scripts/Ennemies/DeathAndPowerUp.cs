@@ -5,6 +5,7 @@ public class DeathAndPowerUp : MonoBehaviour
     [SerializeField] private ItemPrefab _itemPrefab;
     [SerializeField] private ItemData _itemData;
     [SerializeField] private float _spawnProbability = 0.5f;
+    [SerializeField] private PlayerScore _playerScore;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +14,7 @@ public class DeathAndPowerUp : MonoBehaviour
            ItemPrefab itemPrefabInstance = Instantiate(_itemPrefab, transform.position, Quaternion.identity);
            itemPrefabInstance.Set(_itemData);
         }
+        _playerScore.UpdateScore(10);
             
         Destroy(gameObject);
     }

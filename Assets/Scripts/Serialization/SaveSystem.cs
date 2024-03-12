@@ -20,7 +20,9 @@ public class SaveSystem : MonoBehaviour
     {
         SaveData saveData = new()
         {
-            characterDTO = FindAnyObjectByType<PlayerHealth>().Serialized(),
+            HealthDTO = FindAnyObjectByType<PlayerHealth>().Serialized(),
+            //EnemyDestroyDTO = FindAnyObjectByType<DeathAndPowerUp>().Serialized(),
+            PlayerScoreDTO = FindAnyObjectByType<PlayerScore>().Serialized(),
         };
 
         try
@@ -47,7 +49,9 @@ public class SaveSystem : MonoBehaviour
 
             SaveData saveData = JsonConvert.DeserializeObject<SaveData>(json);
 
-            FindAnyObjectByType<PlayerHealth>().Deserialize(saveData.characterDTO);
+            FindAnyObjectByType<PlayerHealth>().Deserialize(saveData.HealthDTO);
+            //FindAnyObjectByType<DeathAndPowerUp>().Deserialize(saveData.EnemyDestroyDTO);
+            FindAnyObjectByType<PlayerScore>().Deserialize(saveData.PlayerScoreDTO);
         }
         catch(Exception ex)
         {

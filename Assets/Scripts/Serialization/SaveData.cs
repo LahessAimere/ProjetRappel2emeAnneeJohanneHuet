@@ -1,5 +1,7 @@
 [System.Serializable]
 public class SaveData
 {
-    public CharacterDTO characterDTO;
+    public HealthDTO HealthDTO;
+    public EnemyDestroyDTO EnemyDestroyDTO;
+    public PlayerScoreDTO PlayerScoreDTO;
 }

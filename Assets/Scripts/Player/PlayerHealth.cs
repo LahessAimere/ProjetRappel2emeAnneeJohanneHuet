@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, ISerializable<CharacterDTO>
+public class PlayerHealth : MonoBehaviour, ISerializable<HealthDTO>
 {
     private float _maxHealth = 100f;
     private float _currentHealth;
@@ -22,14 +22,14 @@ public class PlayerHealth : MonoBehaviour, ISerializable<CharacterDTO>
         _currentHealth = _maxHealth;
     }
     
-    public void Deserialize(CharacterDTO dataTransferObject)
+    public void Deserialize(HealthDTO dataTransferObject)
     {
         _currentHealth = dataTransferObject.Health;
     }
 
-    public CharacterDTO Serialized()
+    public HealthDTO Serialized()
     {
-        return new CharacterDTO
+        return new HealthDTO
         {
             Health = _currentHealth
         };
