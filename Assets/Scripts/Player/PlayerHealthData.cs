@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerHealthData : ScriptableObject
 {
     [SerializeField] private float _maxHealth = 100f;
-    private float _currentHealth;
     
-    public Action<float, float> OnHealthChanged;
+    private float _currentHealth;
     
     public float CurrentHealth
     {
@@ -18,6 +17,8 @@ public class PlayerHealthData : ScriptableObject
             OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
     }
+    
+    public Action<float, float> OnHealthChanged;
     
     private void OnEnable()
     {
