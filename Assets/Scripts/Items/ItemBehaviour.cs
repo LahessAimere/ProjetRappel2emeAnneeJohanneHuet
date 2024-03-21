@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D), typeof(SpriteRenderer))]
 public class ItemBehaviour : MonoBehaviour
 { 
    [SerializeField] private float _moveSpeed = 5f;
@@ -9,7 +10,8 @@ public class ItemBehaviour : MonoBehaviour
    {
       get => _itemData;
    }
-   void Update()
+   
+   private void Update()
    {
       transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
    }

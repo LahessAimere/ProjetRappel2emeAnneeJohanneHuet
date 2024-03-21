@@ -1,6 +1,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(Collider2D), typeof(SpriteRenderer))]
 public class DeathAndPowerUp : MonoBehaviour
 {    
     [SerializeField] private GameObject[] _powerUpPrefabs;
