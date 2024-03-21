@@ -29,9 +29,15 @@ public class EnemyShoot : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    private void Shoot()
     {
-        Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+        Quaternion bulletRotation = transform.rotation;
+        GameObject bulletObject = Instantiate(_bulletPrefab, transform.position, bulletRotation);
+        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            bullet.SetMoveDirection(transform.up);
+        }
     }
 
     private void OnDrawGizmosSelected()

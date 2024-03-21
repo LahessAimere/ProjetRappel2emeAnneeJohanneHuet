@@ -8,7 +8,6 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private EnemyShoot _enemyShoot;
     [SerializeField] private EnemyChasePlayer _enemyChasePlayer;
-    [SerializeField] private Bullet _bullet;
     
     private IEnemyState _currentState;
     private EnemyStateMachineData enemyStateMachineData;
@@ -22,7 +21,6 @@ public class EnemyStateMachine : MonoBehaviour
            enemyShoot = _enemyShoot,
            shootInterval = _shootInterval,
            enemyChasePlayer = _enemyChasePlayer,
-           bullet = _bullet,
        }; 
        TransitionTo(new EnemyIdleState());
     }

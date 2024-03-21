@@ -10,6 +10,4 @@ public class EnemyStateMachineData
     
     //Enemy Chase player
     public EnemyChasePlayer enemyChasePlayer;
-    public Bullet bullet;
-
 }
