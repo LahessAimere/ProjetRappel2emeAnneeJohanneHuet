@@ -3,8 +3,7 @@ using Random = UnityEngine.Random;
 
 public class DeathAndPowerUp : MonoBehaviour
 {    
-    [SerializeField] private ItemPrefab _itemPrefab;
-    [SerializeField] private ItemData _itemData;
+    [SerializeField] private GameObject[] _powerUpPrefabs;
     [SerializeField] private float _spawnProbability = 0.5f;
     [SerializeField] private PlayerScore _playerScore;
     [SerializeField] private CountEnemyDestroy _countEnemyDestroy;
@@ -17,10 +16,10 @@ public class DeathAndPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Random.value < _spawnProbability && _itemData)
+        if (Random.value < _spawnProbability && _powerUpPrefabs.Length > 0)
         {
-           ItemPrefab itemPrefabInstance = Instantiate(_itemPrefab, transform.position, Quaternion.identity);
-           itemPrefabInstance.Set(_itemData);
+            int randomIndex = Random.Range(0, _powerUpPrefabs.Length);
+            Instantiate(_powerUpPrefabs[randomIndex], transform.position, Quaternion.identity);
         }
         _playerScore.UpdateScore(10);
         _countEnemyDestroy.UpdateNumberOfKill(1);
