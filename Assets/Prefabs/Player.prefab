@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3739340593767406529}
   - component: {fileID: 6769168057526693677}
   - component: {fileID: 8710546242208120949}
+  - component: {fileID: 6563592393077515108}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -244,6 +245,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 31c974c2-b5a2-42c6-a897-03750dc15a19
     m_ActionName: Game/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8710546242208120949}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7af12c79-8216-4433-af6b-a415e92c3d7c
+    m_ActionName: UI/Resume[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Game
@@ -274,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1716c790c9fcb0143896b7cfaf6a23a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 7375651319094318472, guid: c1fd8f9f37a13d24c84c534fea427212,
+  _bulletPlayerPrefab: {fileID: 7375651319094318472, guid: c1fd8f9f37a13d24c84c534fea427212,
     type: 3}
 --- !u!114 &3739340593767406529
 MonoBehaviour:
@@ -288,7 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eff26ed0e484504d903246b8b752762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!114 &6769168057526693677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +323,10 @@ MonoBehaviour:
   _inventory: {fileID: 0}
   _itemShield: {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}
   _itemRepair: {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
+  _itemVariantsRepair: {fileID: 6571589167592369154, guid: 900f2752484593748b50c77c4dab5616,
+    type: 3}
+  _itemVariantsShield: {fileID: 6297417504456072810, guid: 6eb3e57d2c1cb344e87cea2f131c744e,
+    type: 3}
 --- !u!114 &8710546242208120949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,3 +340,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 0}
+--- !u!114 &6563592393077515108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620109694095673008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd96234a4dcddf4291cbf3a2e0a6e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 0}

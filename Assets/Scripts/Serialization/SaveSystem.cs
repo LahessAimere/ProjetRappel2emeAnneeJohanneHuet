@@ -21,7 +21,7 @@ public class SaveSystem : MonoBehaviour
         SaveData saveData = new()
         {
             HealthDTO = FindAnyObjectByType<PlayerHealth>().Serialized(),
-            //EnemyDestroyDTO = FindAnyObjectByType<DeathAndPowerUp>().Serialized(),
+            EnemyDestroyDTO = FindAnyObjectByType<CountEnemyDestroy>().Serialized(),
             PlayerScoreDTO = FindAnyObjectByType<PlayerScore>().Serialized(),
         };
 

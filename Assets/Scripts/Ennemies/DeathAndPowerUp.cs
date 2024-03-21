@@ -1,4 +1,5 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DeathAndPowerUp : MonoBehaviour
 {    
@@ -6,6 +7,13 @@ public class DeathAndPowerUp : MonoBehaviour
     [SerializeField] private ItemData _itemData;
     [SerializeField] private float _spawnProbability = 0.5f;
     [SerializeField] private PlayerScore _playerScore;
+    [SerializeField] private CountEnemyDestroy _countEnemyDestroy;
+
+    private void Awake()
+    {
+        _playerScore = FindObjectOfType<PlayerScore>();
+        _countEnemyDestroy = FindObjectOfType<CountEnemyDestroy>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +23,7 @@ public class DeathAndPowerUp : MonoBehaviour
            itemPrefabInstance.Set(_itemData);
         }
         _playerScore.UpdateScore(10);
+        _countEnemyDestroy.UpdateNumberOfKill(1);
             
         Destroy(gameObject);
     }

@@ -10,7 +10,7 @@ public class PlayerScore : MonoBehaviour, ISerializable<PlayerScoreDTO>
     public void UpdateScore(int score)
     {
         _score += score;
-        string scoreString = score.ToString();
+        string scoreString = _score.ToString();
         _scoreText.text = scoreString;
     }
     
