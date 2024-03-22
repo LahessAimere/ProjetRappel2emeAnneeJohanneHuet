@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _shootInterval;
-    [SerializeField] private float _detectionRange = 5f;
     [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private EnemyShoot _enemyShoot;
     [SerializeField] private EnemyChasePlayer _enemyChasePlayer;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _EnemyTransform;
+    [SerializeField] private float _detectionRange = 5f;
     
     private IEnemyState _currentState;
     private EnemyStateMachineData enemyStateMachineData;
@@ -21,33 +24,15 @@ public class EnemyStateMachine : MonoBehaviour
            enemyShoot = _enemyShoot,
            shootInterval = _shootInterval,
            enemyChasePlayer = _enemyChasePlayer,
+           player = _player,
+           enemyTransform = _EnemyTransform,
+           detectionRange = _detectionRange,
        }; 
        TransitionTo(new EnemyIdleState());
     }
     
     private void Update()
     { 
-        GameObject playerObject = GameObject.FindWithTag("Player");
-
-        if (playerObject != null)
-        {
-            Transform playerTransform = playerObject.transform;
-            bool isPlayerInRange = Vector3.Distance(transform.position, playerTransform.position) <= _detectionRange;
-
-            if (isPlayerInRange)
-            {
-                TransitionTo(new EnemyChaseState());
-            }
-            else
-            {
-                TransitionTo(new EnemyIdleState());
-            }
-        } 
-        else
-        {
-            Debug.LogWarning("Player object not found!");
-        }
-        
         IEnemyState nextState = _currentState.Update(enemyStateMachineData);
         if (nextState != null)
         { 

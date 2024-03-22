@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class EnemyStateMachineData
 {
     //Enemy Movement Variables
@@ -10,4 +12,7 @@ public class EnemyStateMachineData
     
     //Enemy Chase player
     public EnemyChasePlayer enemyChasePlayer;
+    public GameObject player;
+    public Transform enemyTransform;
+    public float detectionRange = 5f;
 }

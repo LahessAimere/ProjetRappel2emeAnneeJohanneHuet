@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1017f8060c7614e8964541b5e177b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 0}
   _moveSpeed: 2
+  _playerTransform: {fileID: 0}
 --- !u!114 &1088688431887820149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,8 +224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   _shootInterval: 1
-  _detectionRange: 5
   _enemyMovement: {fileID: 4454556164977757959}
   _enemyShoot: {fileID: 8033867102445095892}
   _enemyChasePlayer: {fileID: 2778280507138288458}
-  _bullet: {fileID: 0}
+  _player: {fileID: 8620109694095673008, guid: bc135906e8f018f49acb7c93051ec32c, type: 3}
+  _EnemyTransform: {fileID: 5074910605000085775}
+  _detectionRange: 5
