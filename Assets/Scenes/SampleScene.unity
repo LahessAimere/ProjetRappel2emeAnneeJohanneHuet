@@ -778,7 +778,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812241707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
@@ -1367,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
@@ -1381,6 +1381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: f725ed57-b825-403b-96ba-a9cc18911a32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: UI/Resume[/Keyboard/escape]
       objectReference: {fileID: 0}
@@ -1388,6 +1393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionName
       value: UI/Action Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Game/ActionItem
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
@@ -1406,6 +1416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
@@ -1417,6 +1432,11 @@ PrefabInstance:
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
@@ -1441,6 +1461,11 @@ PrefabInstance:
       objectReference: {fileID: 564622004}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 564622004}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -1456,6 +1481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PauseGame
       objectReference: {fileID: 0}
@@ -1467,6 +1497,11 @@ PrefabInstance:
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickItem
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
@@ -1491,12 +1526,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835092794863580704, guid: bc135906e8f018f49acb7c93051ec32c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6769168057526693677, guid: bc135906e8f018f49acb7c93051ec32c,

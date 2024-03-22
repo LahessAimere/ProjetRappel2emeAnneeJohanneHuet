@@ -32,12 +32,10 @@ public class Inventory : MonoBehaviour
             float y = Mathf.Sin(tauMultiplier * i) * _size;
 
             Vector3 itemPosition = transform.position + new Vector3(x, y, 0);
-            Debug.Log(itemPosition);
 
             if (_inventorySlots[i] == null)
             {
                 GameObject newItem = Instantiate(itemPrefab, itemPosition, Quaternion.identity, transform);
-                Debug.Log(newItem.transform.position);
                 newItem.transform.localScale = new Vector3(140f, 140f, 140f);
                 _inventorySlots[i] = newItem;
             }
@@ -88,19 +86,7 @@ public class Inventory : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("OnclickItem");
-            int index = _selectedButtonIndex;
-            if (index >= 0 && index < _inventorySlots.Length && _inventorySlots[index] != null)
-            {
-                UseItem(_inventorySlots[index]);
-                _inventorySlots[index] = null;
-                UpdateInventorySlots();
-            }
+            Debug.Log("Utilisation de l'objet ");
         }
-    }
-    
-    private void UseItem(GameObject item)
-    {
-        Debug.Log("Utilisation de l'objet : " + item.name);
     }
 }
