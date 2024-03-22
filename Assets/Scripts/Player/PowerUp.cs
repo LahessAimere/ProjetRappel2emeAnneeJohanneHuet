@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class PlayerInteractPowerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
-    [Header("Actions Prefab")]
-    [SerializeField] private ShieldBehavior _shieldPrefab;
 
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Inventory _inventory;
@@ -23,15 +21,12 @@ public class PlayerInteractPowerUp : MonoBehaviour
         {
             if (_itemShield == itemBehaviour.ItemData)
             {
-                ShieldBehavior shield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
-                shield.PlayerTransform = transform;
                 _inventory.AddItem(_itemVariantsShield);
                 _inventory.UpdateInventorySlots();
             }
 
             if (_itemRepair == itemBehaviour.ItemData)
             {
-                _playerHealth.CurrentHealth += 10;
                 _inventory.AddItem(_itemVariantsRepair);
                 _inventory.UpdateInventorySlots();
             }

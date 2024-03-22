@@ -91,7 +91,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4732403131924870950}
+      addedObject: {fileID: -8936880558555412909}
+    - targetCorrespondingSourceObject: {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2243174440775048733}
   m_SourcePrefab: {fileID: 100100000, guid: c09868f4a6244864fa49256332074e8b, type: 3}
 --- !u!1 &6297417504456072810 stripped
 GameObject:
@@ -99,7 +103,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2404311675555956319}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4732403131924870950
+--- !u!114 &-8936880558555412909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297417504456072810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonSouth
+--- !u!114 &2243174440775048733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

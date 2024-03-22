@@ -2,17 +2,13 @@ using UnityEngine;
 
 public class ButtonStartInteraction : MonoBehaviour
 {
-    public GameObject objectToToggle;
+    [SerializeField] private GameObject _objectToToggle;
 
     public void ToggleGameObject()
     {
-        if (objectToToggle != null)
+        if (_objectToToggle != null)
         {
-            objectToToggle.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("GameObject à basculer non défini !");
+            _objectToToggle.SetActive(!_objectToToggle.activeSelf);
         }
     }
 }

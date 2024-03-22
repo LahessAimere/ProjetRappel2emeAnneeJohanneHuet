@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Pause : MonoBehaviour
+public class PauseCanva : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
     private PlayerInput _playerInput;
