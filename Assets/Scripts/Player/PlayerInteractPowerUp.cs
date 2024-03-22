@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerInteractPowerUp : MonoBehaviour
 {
     [Header("Actions Prefab")]
     [SerializeField] private ShieldBehavior _shieldPrefab;
 
-    [SerializeField] private PlayerHealth _playerHealth;
+    [FormerlySerializedAs("playerHealthData")] [FormerlySerializedAs("_playerHealth")] 
+    [SerializeField] private PlayerHealthData _playerHealthData;
     [SerializeField] private Inventory _inventory;
     
     [Header("Scriptable Objects")]
@@ -31,7 +34,7 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
             if (_itemRepair == itemBehaviour.ItemData)
             {
-                _playerHealth.CurrentHealth += 10;
+                _playerHealthData.CurrentHealth += 10;
                 _inventory.AddItem(_itemVariantsRepair);
                 _inventory.UpdateInventorySlots();
             }
@@ -39,12 +42,12 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
         if (other.TryGetComponent(out Bullet _))
         {
-            _playerHealth.CurrentHealth -= 1;
-            if (_playerHealth.CurrentHealth == 0)
+            _playerHealthData.CurrentHealth -= 1;
+            if (_playerHealthData.CurrentHealth == 0)
             {
                 Destroy(gameObject);
             }
-            Debug.Log(_playerHealth.CurrentHealth);
+            Debug.Log(_playerHealthData.CurrentHealth);
         }
     } 
 }

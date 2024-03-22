@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
+    [FormerlySerializedAs("_bulletPrefab")] [SerializeField] private GameObject _bulletPlayerPrefab;
     private Transform _firePoint;
     
     private void Awake()
@@ -15,7 +16,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (context.performed)
         {
-           Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+           Instantiate(_bulletPlayerPrefab, _firePoint.position, _firePoint.rotation);
         }
     }
 }

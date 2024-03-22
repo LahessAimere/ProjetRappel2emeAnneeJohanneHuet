@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97ce5fcbeb969542a55ac477ee7e243, type: 3}
   m_Name: Shield_ItemData
   m_EditorClassIdentifier: 
-  _name: Shield
+  nameOfItem: Shield
+  _spriteColor: {r: 0.27058825, g: 0.5294118, b: 0.6039216, a: 1}
+  _icon: {fileID: 21300000, guid: dc03495e732e7cf4880f917094109761, type: 3}
