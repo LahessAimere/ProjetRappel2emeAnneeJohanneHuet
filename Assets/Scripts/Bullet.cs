@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
+    private Vector3 _moveDirection;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,5 +19,10 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+    }
+
+    public void SetMoveDirection(Vector3 direction)
+    {
+        _moveDirection = direction;
     }
 }

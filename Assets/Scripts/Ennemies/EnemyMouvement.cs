@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-
-    void Update()
+    public void Move(float moveSpeed)
     {
         transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
     }

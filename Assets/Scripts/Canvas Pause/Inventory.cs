@@ -60,7 +60,6 @@ public class Inventory : MonoBehaviour
             float y = Mathf.Sin(tauMultiplier * i) * _size;
 
             Vector3 itemPosition = transform.position + new Vector3(x, y, 0);
-            Debug.Log(itemPosition);
 
             if (_inventorySlots[i] == null)
             {

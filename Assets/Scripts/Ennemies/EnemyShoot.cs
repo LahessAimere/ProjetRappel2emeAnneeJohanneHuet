@@ -5,7 +5,6 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _shootInterval = 2f;
-    [SerializeField] private LayerMask _playerLayer;
     
     private bool _isActive;
     private float _detectionDistance = 10f;
@@ -13,7 +12,7 @@ public class EnemyShoot : MonoBehaviour
     private void Start()
     {
         _isActive = true;
-        StartCoroutine(ShootRoutine());
+        StartCoroutine(ShootRoutine(_shootInterval));
     }
 
     private void OnDestroy()
@@ -21,23 +20,24 @@ public class EnemyShoot : MonoBehaviour
         _isActive = false;
     }
 
-    private IEnumerator ShootRoutine()
+    public IEnumerator ShootRoutine(float _shootInterval)
     {
         while (_isActive)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _detectionDistance, _playerLayer);
-            
-            if (hit.collider != null)
-            {
-                Shoot();
-            }
+        { 
+            Shoot();
             yield return new WaitForSeconds(_shootInterval);
         }
     }
 
     private void Shoot()
     {
-        Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+        Quaternion bulletRotation = transform.rotation;
+        GameObject bulletObject = Instantiate(_bulletPrefab, transform.position, bulletRotation);
+        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            bullet.SetMoveDirection(transform.up);
+        }
     }
 
     private void OnDrawGizmosSelected()
