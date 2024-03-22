@@ -1,29 +1,30 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CountEnemyDestroy : MonoBehaviour, ISerializable<EnemyDestroyDTO>
 {
-    [SerializeField] private TextMeshProUGUI _numOfKilltext;
+    [FormerlySerializedAs("_numOfKilltext")] [SerializeField] private TextMeshProUGUI _numberOfKilltext;
     
-    private int _numOfKill = 0;
+    private int _numberOfKill = 0;
 
-    public void UpdateNumberOfKill(int numOfKill)
+    public void UpdateNumberOfKill(int numberOfKill)
     {
-        _numOfKill += numOfKill;
-        string scoreString = _numOfKill.ToString();
-        _numOfKilltext.text = scoreString;
+        _numberOfKill += numberOfKill;
+        string scoreString = _numberOfKill.ToString();
+        _numberOfKilltext.text = scoreString;
     }
     
     public void Deserialize(EnemyDestroyDTO dataTransferObject)
     {
-        _numOfKill = dataTransferObject.NumberOfEnemyDestroy;
+        _numberOfKill = dataTransferObject.NumberOfEnemyDestroy;
     }
 
     public EnemyDestroyDTO Serialized()
     {
         return new EnemyDestroyDTO()
         {
-            NumberOfEnemyDestroy = _numOfKill
+            NumberOfEnemyDestroy = _numberOfKill
         };
     }
 }

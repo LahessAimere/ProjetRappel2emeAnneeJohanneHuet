@@ -20,10 +20,10 @@ public class SaveSystem : MonoBehaviour
     {
         SaveData saveData = new()
         {
-            HealthDTO = FindAnyObjectByType<PlayerHealthData>().Serialized(),
-            EnemyDestroyDTO = FindAnyObjectByType<CountEnemyDestroy>().Serialized(),
-            PlayerScoreDTO = FindAnyObjectByType<PlayerScore>().Serialized(),
-            VariablesStorageDTO = FindAnyObjectByType<SaveVariables>().Serialized(),
+            healthDTO = FindAnyObjectByType<PlayerHealthData>().Serialized(),
+            enemyDestroyDTO = FindAnyObjectByType<CountEnemyDestroy>().Serialized(),
+            playerScoreDTO = FindAnyObjectByType<PlayerScore>().Serialized(),
+            variablesStorageDTO = FindAnyObjectByType<SaveVariables>().Serialized(),
         };
 
         try
@@ -50,10 +50,10 @@ public class SaveSystem : MonoBehaviour
 
             SaveData saveData = JsonConvert.DeserializeObject<SaveData>(json);
 
-            FindAnyObjectByType<PlayerHealthData>().Deserialize(saveData.HealthDTO);
-            FindAnyObjectByType<CountEnemyDestroy>().Deserialize(saveData.EnemyDestroyDTO);
-            FindAnyObjectByType<PlayerScore>().Deserialize(saveData.PlayerScoreDTO);
-            FindAnyObjectByType<SaveVariables>().Deserialize(saveData.VariablesStorageDTO);
+            FindAnyObjectByType<PlayerHealthData>().Deserialize(saveData.healthDTO);
+            FindAnyObjectByType<CountEnemyDestroy>().Deserialize(saveData.enemyDestroyDTO);
+            FindAnyObjectByType<PlayerScore>().Deserialize(saveData.playerScoreDTO);
+            FindAnyObjectByType<SaveVariables>().Deserialize(saveData.variablesStorageDTO);
         }
         catch(Exception ex)
         {
