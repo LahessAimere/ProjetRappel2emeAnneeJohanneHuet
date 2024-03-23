@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemRepair Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5672508293023690246, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7123835884671512332, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
         type: 3}
       propertyPath: m_SortingOrder
@@ -80,14 +85,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6810942552729635806, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
-    - {fileID: 5266710533012559372, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1998874303786914736, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6461534631236044380}
+      addedObject: {fileID: -1602730688363618596}
   m_SourcePrefab: {fileID: 100100000, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
 --- !u!1 &6571589167592369154 stripped
 GameObject:
@@ -95,7 +99,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4652099740895674290}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6461534631236044380
+--- !u!114 &-1602730688363618596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +108,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 6571589167592369154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Gamepad>/select
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6769168057526693677, guid: bc135906e8f018f49acb7c93051ec32c,
+          type: 3}
+        m_TargetAssemblyTypeName: PowerUp, Assembly-CSharp
+        m_MethodName: AddHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

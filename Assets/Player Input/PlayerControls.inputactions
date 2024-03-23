@@ -332,15 +332,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Action Item",
-                    "type": "Button",
-                    "id": "253da738-4531-4d99-889a-f7c960d11522",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -563,17 +554,6 @@
                     "action": "Navigation",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "c7debb00-6228-4082-8572-554f5f91c5e2",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Action Item",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

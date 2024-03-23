@@ -354,15 +354,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Action Item"",
-                    ""type"": ""Button"",
-                    ""id"": ""253da738-4531-4d99-889a-f7c960d11522"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -585,17 +576,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Navigation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c7debb00-6228-4082-8572-554f5f91c5e2"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Action Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -634,7 +614,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigation = m_UI.FindAction("Navigation", throwIfNotFound: true);
         m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
-        m_UI_ActionItem = m_UI.FindAction("Action Item", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -760,14 +739,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Navigation;
     private readonly InputAction m_UI_Resume;
-    private readonly InputAction m_UI_ActionItem;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
         public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigation => m_Wrapper.m_UI_Navigation;
         public InputAction @Resume => m_Wrapper.m_UI_Resume;
-        public InputAction @ActionItem => m_Wrapper.m_UI_ActionItem;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -783,9 +760,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Resume.started += instance.OnResume;
             @Resume.performed += instance.OnResume;
             @Resume.canceled += instance.OnResume;
-            @ActionItem.started += instance.OnActionItem;
-            @ActionItem.performed += instance.OnActionItem;
-            @ActionItem.canceled += instance.OnActionItem;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -796,9 +770,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Resume.started -= instance.OnResume;
             @Resume.performed -= instance.OnResume;
             @Resume.canceled -= instance.OnResume;
-            @ActionItem.started -= instance.OnActionItem;
-            @ActionItem.performed -= instance.OnActionItem;
-            @ActionItem.canceled -= instance.OnActionItem;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -844,6 +815,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnNavigation(InputAction.CallbackContext context);
         void OnResume(InputAction.CallbackContext context);
-        void OnActionItem(InputAction.CallbackContext context);
     }
 }

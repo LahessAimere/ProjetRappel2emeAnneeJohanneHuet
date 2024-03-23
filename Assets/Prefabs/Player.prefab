@@ -192,6 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthData: {fileID: 11400000, guid: 51281b7249caba542bf55f7cd1a4f26c, type: 2}
   _inventory: {fileID: 0}
+  _shieldPrefab: {fileID: 7871993345420680294, guid: 94d28b45b40d1934582bd5255ebda4b3,
+    type: 3}
+  _pauseCanvas: {fileID: 0}
   _itemShield: {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}
   _itemRepair: {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
   _itemVariantsRepair: {fileID: 6571589167592369154, guid: 900f2752484593748b50c77c4dab5616,
