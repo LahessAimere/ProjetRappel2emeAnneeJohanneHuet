@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PowerUp : MonoBehaviour
 {
 
-    [SerializeField] private PlayerHealth _playerHealth;
+    [FormerlySerializedAs("_playerHealth")] [SerializeField] private PlayerHealthData playerHealthData;
     [SerializeField] private Inventory _inventory;
     
     [Header("Scriptable Objects")]
@@ -32,12 +33,12 @@ public class PowerUp : MonoBehaviour
 
         if (other.TryGetComponent(out Bullet _))
         {
-            _playerHealth.CurrentHealth -= 1;
-            if (_playerHealth.CurrentHealth == 0)
+            playerHealthData.CurrentHealth -= 1;
+            if (playerHealthData.CurrentHealth == 0)
             {
                 Destroy(gameObject);
             }
-            Debug.Log(_playerHealth.CurrentHealth);
+            Debug.Log(playerHealthData.CurrentHealth);
         }
     } 
 }
