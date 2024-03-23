@@ -1,10 +1,11 @@
-using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IBullet
 {
     [SerializeField] private float _moveSpeed = 5f;
 
+    public float MoveSpeed => _moveSpeed;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(gameObject);

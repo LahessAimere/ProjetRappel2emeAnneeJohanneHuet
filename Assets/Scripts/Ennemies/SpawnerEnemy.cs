@@ -1,21 +1,19 @@
 using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class EnnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _ennemyPrefab;
-    
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private float _spawnInterval = 2f;
+
     private BoxCollider2D _spawnArea;
-    private float _spawnInterval = 2f;
     private bool _isActive;
 
-
-    void Start()
+    private void Start()
     {
         _isActive = true;
         _spawnArea = GetComponent<BoxCollider2D>();
-        StartCoroutine(SpawnEnnemies());
+        StartCoroutine(SpawnEnemies());
     }
 
     private void OnDestroy()
@@ -23,16 +21,19 @@ public class EnnemySpawner : MonoBehaviour
         _isActive = false;
     }
 
-    IEnumerator SpawnEnnemies()
+    private IEnumerator SpawnEnemies()
     {
         while (_isActive)
         {
-            float spawnX = Random.Range(_spawnArea.bounds.min.x, _spawnArea.bounds.max.x);
-            float spawnY = transform.position.y;
-
-            Instantiate(_ennemyPrefab, new Vector2(spawnX, spawnY), Quaternion.identity);
-
+            SpawnEnemy();
             yield return new WaitForSeconds(_spawnInterval);
         }
+    }
+
+    private void SpawnEnemy()
+    {
+        float spawnX = Random.Range(_spawnArea.bounds.min.x, _spawnArea.bounds.max.x);
+        float spawnY = transform.position.y;
+        Instantiate(_enemyPrefab, new Vector2(spawnX, spawnY), Quaternion.identity);
     }
 }

@@ -9,10 +9,10 @@ public class Pause : MonoBehaviour
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
-        StartCoroutine(PauseAfterDelay(0.01f));
+        StartCoroutine(ResumeAfterDelay(0.01f));
     }
 
-    private System.Collections.IEnumerator PauseAfterDelay(float delay)
+    private System.Collections.IEnumerator ResumeAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         Resume();

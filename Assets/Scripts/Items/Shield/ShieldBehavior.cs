@@ -13,7 +13,7 @@ public class ShieldBehavior : MonoBehaviour
    
    private void Start()
    {
-      StartCoroutine(StartShieldCountdown());
+      StartCoroutine(DestroyAfterDuration());
    }
 
    private void Update()
@@ -27,10 +27,10 @@ public class ShieldBehavior : MonoBehaviour
 
    private void OnDestroy()
    {
-      StopCoroutine(StartShieldCountdown());
+      StopCoroutine(DestroyAfterDuration());
    }
 
-   private IEnumerator StartShieldCountdown()
+   private IEnumerator DestroyAfterDuration()
    {
       yield return new WaitForSeconds(_shieldCountdown);
 

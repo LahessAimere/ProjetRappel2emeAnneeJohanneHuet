@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97ce5fcbeb969542a55ac477ee7e243, type: 3}
   m_Name: Repair_ItemData
   m_EditorClassIdentifier: 
-  _name: Repair
+  _nameOfItem: Repair
+  _backgroundColorItemItem: {r: 0, g: 0.6431373, b: 0.2784314, a: 1}
+  _iconItemItem: {fileID: 21300000, guid: 5fc4347f08919a049b9094999e8dec99, type: 3}
+  _iconScale: {x: 0.70832, y: 0.70832, z: 0.70832}
