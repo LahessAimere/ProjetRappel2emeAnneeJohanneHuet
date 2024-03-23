@@ -49,7 +49,17 @@ public class ItemButtonInventory : MonoBehaviour
         Debug.Log("AddHealth");
         _pauseCanvas.Resume();
         _playerInput.SwitchCurrentActionMap("Game");
-        _playerHealthData.CurrentHealth += 10;
+        
+        if (_playerHealthData.CurrentHealth < 100)
+        {
+            _playerHealthData.CurrentHealth += 10;
+        }
+        
+        if (_playerHealthData.CurrentHealth > 100)
+        {
+            _playerHealthData.CurrentHealth = 100;
+        }
+
         Destroy(gameObject);
     }
 }
