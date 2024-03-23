@@ -8,6 +8,7 @@ public class ItemBehaviour : MonoBehaviour
    public ItemData ItemData
    {
       get => _itemData;
+      set => _itemData = value;
    }
    
    void Update()

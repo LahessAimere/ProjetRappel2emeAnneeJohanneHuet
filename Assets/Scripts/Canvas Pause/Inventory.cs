@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,20 +14,6 @@ public class Inventory : MonoBehaviour
     private Vector2 _navigationInput;
     private int _selectedButtonIndex;
     private const float _tau = 2 * Mathf.PI;
-
-    public void OnNavigation(InputAction.CallbackContext context)
-    {
-        _navigationInput = context.ReadValue<Vector2>();
-
-        if (_navigationInput.x > 0)
-        {
-            _selectedButtonIndex = (_selectedButtonIndex + 1) % _numPoint;
-        }
-        else if (_navigationInput.x < 0)
-        {
-            _selectedButtonIndex = (_selectedButtonIndex - 1 + _numPoint) % _numPoint;
-        }
-    }
     
     private void Start()
     {
@@ -97,43 +82,5 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        float tauMultiplier = _tau / _numPoint;
-    
-        for (int i = 0; i < _numPoint; i++)
-        {
-            float x = Mathf.Cos(tauMultiplier * i) * _size;
-            float y = Mathf.Sin(tauMultiplier * i) * _size;
-    
-            Vector3 currentPoint = transform.position + new Vector3(x, y, 0);
-    
-            float buttonSize = 0.1f;
-            float buttonRadius = buttonSize * HandleUtility.GetHandleSize(currentPoint);
-    
-            if (i == _selectedButtonIndex)
-            {
-                Handles.color = Color.green;
-            }
-            else
-            {
-                Handles.color = Color.white;
-            }
-    
-            Handles.DrawSolidDisc(currentPoint, Vector3.forward, buttonRadius);
-    
-            float nextX = Mathf.Cos(_tau * (i + 1) / _numPoint) * _size;
-            float nextY = Mathf.Sin(_tau * (i + 1) / _numPoint) * _size;
-    
-            Vector3 nextPoint = transform.position + new Vector3(nextX, nextY, 0);
-    
-            Handles.color = Color.magenta;
-            Handles.DrawLine(currentPoint, nextPoint);
-        }
-    
-        Handles.color = Color.white;
-        Handles.DrawWireDisc(transform.position, transform.forward, _size);
     }
 }

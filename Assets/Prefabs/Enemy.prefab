@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 2a4f9cb36b8050a4a92e9b3090972a6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.99, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
@@ -163,10 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b36d4b09d3a8914da30d5913aef300e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnProbability: 0.5
   _itemPrefab: {fileID: 6094764108587159550, guid: 709792ae1c79963438e50a3f94283995,
     type: 3}
-  _itemData: {fileID: 0}
-  _spawnProbability: 0.5
+  _itemDataArray:
+  - {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
+  - {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}
+  _itemBehaviour: {fileID: 6828897174544993012, guid: 709792ae1c79963438e50a3f94283995,
+    type: 3}
 --- !u!114 &4454556164977757959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585aabd9ee0424847bbc69742ae8cfbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootInterval: 1
   _bulletPrefab: {fileID: 1239339504824448413, guid: 52b5b22b354f878438d87f20a058b71d,
     type: 3}
-  _shootInterval: 1
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64

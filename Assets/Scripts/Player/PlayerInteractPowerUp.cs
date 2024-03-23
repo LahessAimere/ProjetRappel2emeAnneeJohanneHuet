@@ -4,7 +4,6 @@ public class PlayerInteractPowerUp : MonoBehaviour
 {
     [Header("Actions Prefab")]
     [SerializeField] private ShieldBehavior _shieldPrefab;
-
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Inventory _inventory;
     
@@ -12,8 +11,9 @@ public class PlayerInteractPowerUp : MonoBehaviour
     [SerializeField] private ItemData _itemShield;
     [SerializeField] private ItemData _itemRepair;
 
-    [SerializeField] private GameObject _itemVariantsRepair;
-    [SerializeField] private GameObject _itemVariantsShield;
+    [Header("Item Prefabs")]
+    [SerializeField] private GameObject _itemPrefabRepair;
+    [SerializeField] private GameObject _itemPrefabShield;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,18 +21,19 @@ public class PlayerInteractPowerUp : MonoBehaviour
         
         if (other.TryGetComponent(out ItemBehaviour itemBehaviour))
         {
-            if (_itemShield == itemBehaviour.ItemData)
+            if (_itemShield.NameOfItem == itemBehaviour.ItemData.NameOfItem)
             {
+                Debug.Log("ça touche");
                 ShieldBehavior shield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
                 shield.PlayerTransform = transform;
-                _inventory.AddItem(_itemVariantsShield);
+                _inventory.AddItem(_itemPrefabShield);
                 _inventory.UpdateInventorySlots();
             }
 
-            if (_itemRepair == itemBehaviour.ItemData)
+            if (_itemRepair.NameOfItem == itemBehaviour.ItemData.NameOfItem)
             {
                 _playerHealth.CurrentHealth += 10;
-                _inventory.AddItem(_itemVariantsRepair);
+                _inventory.AddItem(_itemPrefabRepair);
                 _inventory.UpdateInventorySlots();
             }
         }
