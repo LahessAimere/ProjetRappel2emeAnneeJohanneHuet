@@ -752,7 +752,7 @@ MonoBehaviour:
     m_ActionName: Game/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 725513042}
         m_TargetAssemblyTypeName: PauseCanva, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
     m_ActionName: Game/Pause[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 725513042}
         m_TargetAssemblyTypeName: PauseCanva, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812241707}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 

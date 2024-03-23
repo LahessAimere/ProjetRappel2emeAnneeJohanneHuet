@@ -190,9 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712730865628d43488fa8801a36c56ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthData: {fileID: 0}
+  playerHealthData: {fileID: 11400000, guid: 51281b7249caba542bf55f7cd1a4f26c, type: 2}
   _inventory: {fileID: 0}
   _itemShield: {fileID: 11400000, guid: 6c2e650e7c9cd864a958a87afae2dfda, type: 2}
   _itemRepair: {fileID: 11400000, guid: fb6cc4af2242bd645b906a09709ac590, type: 2}
-  _itemVariantsRepair: {fileID: 0}
-  _itemVariantsShield: {fileID: 0}
+  _itemVariantsRepair: {fileID: 6571589167592369154, guid: 900f2752484593748b50c77c4dab5616,
+    type: 3}
+  _itemVariantsShield: {fileID: 6297417504456072810, guid: 6eb3e57d2c1cb344e87cea2f131c744e,
+    type: 3}
