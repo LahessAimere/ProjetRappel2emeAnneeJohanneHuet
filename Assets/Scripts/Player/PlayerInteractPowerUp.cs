@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerInteractPowerUp : MonoBehaviour
 {
     [Header("Actions Prefab")]
     [SerializeField] private ShieldBehavior _shieldPrefab;
-    [SerializeField] private PlayerHealth _playerHealth;
+    [FormerlySerializedAs("_playerHealth")] [SerializeField] private PlayerHealthData playerHealthData;
     [SerializeField] private Inventory _inventory;
     
     [Header("Scriptable Objects")]
@@ -32,7 +33,7 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
             if (_itemRepair.NameOfItem == itemBehaviour.ItemData.NameOfItem)
             {
-                _playerHealth.CurrentHealth += 10;
+                playerHealthData.CurrentHealth += 10;
                 _inventory.AddItem(_itemPrefabRepair);
                 _inventory.UpdateInventorySlots();
             }
@@ -40,12 +41,12 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
         if (other.TryGetComponent(out Bullet _))
         {
-            _playerHealth.CurrentHealth -= 1;
-            if (_playerHealth.CurrentHealth == 0)
+            playerHealthData.CurrentHealth -= 1;
+            if (playerHealthData.CurrentHealth == 0)
             {
                 Destroy(gameObject);
             }
-            Debug.Log(_playerHealth.CurrentHealth);
+            Debug.Log(playerHealthData.CurrentHealth);
         }
     } 
 }
