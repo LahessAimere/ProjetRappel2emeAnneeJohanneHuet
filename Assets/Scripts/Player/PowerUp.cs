@@ -6,7 +6,6 @@ public class PowerUp : MonoBehaviour
     [Header("Actions Prefab")]
     [FormerlySerializedAs("_playerHealth")] [SerializeField] private PlayerHealthData playerHealthData;
     [SerializeField] private Inventory _inventory;
-    [SerializeField] private ShieldBehavior _shieldPrefab;
     [SerializeField] private PauseCanva _pauseCanvas;
     
     [Header("Scriptable Objects")]
@@ -51,22 +50,5 @@ public class PowerUp : MonoBehaviour
             }
             Debug.Log(playerHealthData.CurrentHealth);
         }
-    }
-
-    public void AddShield()
-    {
-        Debug.Log("AddShield");
-        DestroyImmediate(gameObject, true);
-        //_pauseCanvas.Resume();
-        //ShieldBehavior shield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
-        //shield.PlayerTransform = transform;
-    }
-    
-    public void AddHealth()
-    {
-        Debug.Log("AddHealth");
-        DestroyImmediate(gameObject, true);
-        //_pauseCanvas.Resume();
-        //playerHealthData.CurrentHealth += 10;
     }
 }

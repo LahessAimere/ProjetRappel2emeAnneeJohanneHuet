@@ -69,6 +69,15 @@ public class Inventory : MonoBehaviour
         {
             children.Add(child.gameObject);
         }
+        
+        for (int i = 0; i < _inventorySlots.Length; i++)
+        {
+            if (_inventorySlots[i] != null && !children.Contains(_inventorySlots[i]))
+            {
+                Destroy(_inventorySlots[i]);
+                _inventorySlots[i] = null;
+            }
+        }
 
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
@@ -79,14 +88,6 @@ public class Inventory : MonoBehaviour
                     _inventorySlots[i] = children[i];
                 }
             }
-        }
-    }
-
-    public void OnClickItem(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("Utilisation de l'objet ");
         }
     }
 }

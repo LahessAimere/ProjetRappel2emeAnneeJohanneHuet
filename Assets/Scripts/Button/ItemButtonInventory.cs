@@ -1,26 +1,55 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class ItemButtonInventory : MonoBehaviour, IPointerClickHandler
+public class ItemButtonInventory : MonoBehaviour
 {
+    [SerializeField] private PlayerHealthData _playerHealthData;
     [SerializeField] private Inventory _inventory;
-    [SerializeField] private GameObject _item;
+    [SerializeField] private PauseCanva _pauseCanvas;
+    private PlayerInput _playerInput;
+    [SerializeField] private PlayerMovement _player;
+    [SerializeField] private ShieldBehavior _shieldPrefab;
+
 
     private void Start()
     {
-        _inventory = GetComponentInParent<Inventory>();
-    }
-
-    public void SetItem(GameObject item)
-    {
-        _item = item;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (_item != null)
+        if (_inventory == null)
         {
-            //_inventory.UseItem(_item);
+            _inventory = FindObjectOfType<Inventory>();
         }
+
+        if (_pauseCanvas == null)
+        {
+            _pauseCanvas = FindObjectOfType<PauseCanva>();
+        }
+
+        if (_playerInput == null)
+        {
+            _playerInput = FindObjectOfType<PlayerInput>();
+        }
+
+        if (_player == null)
+        {
+            _player = FindObjectOfType<PlayerMovement>();
+        }
+    }
+
+    public void AddShield()
+    {
+        Debug.Log("AddShield");
+        _pauseCanvas.Resume();
+        _playerInput.SwitchCurrentActionMap("Game");
+        ShieldBehavior shield = Instantiate(_shieldPrefab, _player.transform.position, Quaternion.identity, _player.transform).GetComponent<ShieldBehavior>();
+        shield.PlayerTransform = transform;
+        Destroy(gameObject);
+    }
+    
+    public void AddHealth()
+    {
+        Debug.Log("AddHealth");
+        _pauseCanvas.Resume();
+        _playerInput.SwitchCurrentActionMap("Game");
+        _playerHealthData.CurrentHealth += 10;
+        Destroy(gameObject);
     }
 }

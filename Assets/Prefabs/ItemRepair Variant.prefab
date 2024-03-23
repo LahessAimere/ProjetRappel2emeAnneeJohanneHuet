@@ -92,6 +92,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -1602730688363618596}
+    - targetCorrespondingSourceObject: {fileID: 1998874303786914736, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7384718181381091706}
   m_SourcePrefab: {fileID: 100100000, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
 --- !u!1 &6571589167592369154 stripped
 GameObject:
@@ -143,9 +147,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6769168057526693677, guid: bc135906e8f018f49acb7c93051ec32c,
-          type: 3}
-        m_TargetAssemblyTypeName: PowerUp, Assembly-CSharp
+      - m_Target: {fileID: 7384718181381091706}
+        m_TargetAssemblyTypeName: ItemButtonInventory, Assembly-CSharp
         m_MethodName: AddHealth
         m_Mode: 1
         m_Arguments:
@@ -156,3 +159,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7384718181381091706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571589167592369154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260a2e0aeeae4e549b1ba1be749d2b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealthData: {fileID: 11400000, guid: 51281b7249caba542bf55f7cd1a4f26c, type: 2}
+  _inventory: {fileID: 0}
+  _pauseCanvas: {fileID: 0}
+  _player: {fileID: 0}
+  _shieldPrefab: {fileID: 0}

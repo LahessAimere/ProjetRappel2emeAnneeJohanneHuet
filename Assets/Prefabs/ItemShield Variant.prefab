@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1105809668873036937, guid: c09868f4a6244864fa49256332074e8b,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105809668873036937, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
       propertyPath: m_SortingOrder
       value: 11
       objectReference: {fileID: 0}
@@ -97,7 +102,23 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -8501738043193597041}
+    - targetCorrespondingSourceObject: {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3696502995806879591}
   m_SourcePrefab: {fileID: 100100000, guid: c09868f4a6244864fa49256332074e8b, type: 3}
+--- !u!114 &171500108660876252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2539078881851893123, guid: c09868f4a6244864fa49256332074e8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2404311675555956319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297417504456072810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6297417504456072810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8518909852196018229, guid: c09868f4a6244864fa49256332074e8b,
@@ -144,13 +165,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 171500108660876252}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6769168057526693677, guid: bc135906e8f018f49acb7c93051ec32c,
-          type: 3}
-        m_TargetAssemblyTypeName: PowerUp, Assembly-CSharp
+      - m_Target: {fileID: 3696502995806879591}
+        m_TargetAssemblyTypeName: ItemButtonInventory, Assembly-CSharp
         m_MethodName: AddShield
         m_Mode: 1
         m_Arguments:
@@ -161,3 +181,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3696502995806879591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297417504456072810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260a2e0aeeae4e549b1ba1be749d2b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealthData: {fileID: 11400000, guid: 51281b7249caba542bf55f7cd1a4f26c, type: 2}
+  _inventory: {fileID: 0}
+  _pauseCanvas: {fileID: 0}
+  _player: {fileID: 0}
+  _shieldPrefab: {fileID: 7871993345420680294, guid: 94d28b45b40d1934582bd5255ebda4b3,
+    type: 3}
