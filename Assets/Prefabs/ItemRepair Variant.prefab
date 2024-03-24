@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemRepair Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5672508293023690246, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7123835884671512332, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
         type: 3}
       propertyPath: m_SortingOrder
@@ -86,7 +91,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1998874303786914736, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6705032878317461946}
+      addedObject: {fileID: -1602730688363618596}
+    - targetCorrespondingSourceObject: {fileID: 1998874303786914736, guid: f9ca8ef57d90f0247babc7017e2a0ac6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7384718181381091706}
   m_SourcePrefab: {fileID: 100100000, guid: f9ca8ef57d90f0247babc7017e2a0ac6, type: 3}
 --- !u!1 &6571589167592369154 stripped
 GameObject:
@@ -94,7 +103,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4652099740895674290}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6705032878317461946
+--- !u!114 &-1602730688363618596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +124,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -137,4 +146,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7384718181381091706}
+        m_TargetAssemblyTypeName: ItemButtonInventory, Assembly-CSharp
+        m_MethodName: AddHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7384718181381091706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571589167592369154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260a2e0aeeae4e549b1ba1be749d2b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealthData: {fileID: 11400000, guid: 51281b7249caba542bf55f7cd1a4f26c, type: 2}
+  _inventory: {fileID: 0}
+  _pauseCanvas: {fileID: 0}
+  _player: {fileID: 0}
+  _shieldPrefab: {fileID: 0}

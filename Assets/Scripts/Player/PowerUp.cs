@@ -1,12 +1,12 @@
-using UnityEngine;
+ using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PlayerInteractPowerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     [Header("Actions Prefab")]
-    [SerializeField] private ShieldBehavior _shieldPrefab;
-
-    [SerializeField] private PlayerHealth _playerHealth;
+    [FormerlySerializedAs("_playerHealth")] [SerializeField] private PlayerHealthData playerHealthData;
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private PauseCanva _pauseCanvas;
     
     [Header("Scriptable Objects")]
     [SerializeField] private ItemData _itemShield;
@@ -14,24 +14,28 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
     [SerializeField] private GameObject _itemVariantsRepair;
     [SerializeField] private GameObject _itemVariantsShield;
-
+    
+    private void Start()
+    {
+        _pauseCanvas = FindObjectOfType<PauseCanva>();
+        if (_pauseCanvas == null)
+        {
+            Debug.LogError("PauseCanva reference not set in PowerUp script!");
+        }
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
-        
         if (other.TryGetComponent(out ItemBehaviour itemBehaviour))
         {
             if (_itemShield == itemBehaviour.ItemData)
             {
-                ShieldBehavior shield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
-                shield.PlayerTransform = transform;
                 _inventory.AddItem(_itemVariantsShield);
                 _inventory.UpdateInventorySlots();
             }
 
             if (_itemRepair == itemBehaviour.ItemData)
             {
-                _playerHealth.CurrentHealth += 10;
                 _inventory.AddItem(_itemVariantsRepair);
                 _inventory.UpdateInventorySlots();
             }
@@ -39,12 +43,12 @@ public class PlayerInteractPowerUp : MonoBehaviour
 
         if (other.TryGetComponent(out Bullet _))
         {
-            _playerHealth.CurrentHealth -= 1;
-            if (_playerHealth.CurrentHealth == 0)
+            playerHealthData.CurrentHealth -= 1;
+            if (playerHealthData.CurrentHealth == 0)
             {
                 Destroy(gameObject);
             }
-            Debug.Log(_playerHealth.CurrentHealth);
+            Debug.Log(playerHealthData.CurrentHealth);
         }
-    } 
+    }
 }
